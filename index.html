@@ -1,0 +1,793 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Kittn API"
+        >
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-024da600.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#endpoint-security-type" class="toc-h2 toc-link" data-title="Endpoint security type">Endpoint security type</a>
+                  </li>
+                  <li>
+                    <a href="#signature-authentication" class="toc-h2 toc-link" data-title="Signature Authentication">Signature Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#getting-started-with-postman" class="toc-h2 toc-link" data-title="Getting Started with Postman">Getting Started with Postman</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#example" class="toc-h1 toc-link" data-title="EXAMPLE">EXAMPLE</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+
+<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<h1 id='authentication'>Authentication</h1><h2 id='endpoint-security-type'>Endpoint security type</h2>
+<p>API requests are likely to be tampered during transmission through the internet. To ensure that the request remains unchanged, all private interfaces other than public interfaces (basic information, market data) must be verified by signature authentication via API-KEY to make sure the parameters or configurations are unchanged during transmission.</p>
+
+<p>Each created API-KEY need to be assigned with appropriate permissions in order to access the corresponding interface. Before using the interface, users is required to check the permission type for each interface and confirm there is appropriate permissions.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Authentication Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">NONE</td>
+<td style="text-align: left">Endpoints are freely accessible</td>
+</tr>
+<tr>
+<td style="text-align: left">TRADE</td>
+<td style="text-align: left">Endpoints requires sending a valid API-KEY and signature</td>
+</tr>
+<tr>
+<td style="text-align: left">USER_DATA</td>
+<td style="text-align: left">Endpoints requires sending a valid API-KEY and signature</td>
+</tr>
+<tr>
+<td style="text-align: left">USER_STREAM</td>
+<td style="text-align: left">The endpoints requires sending a valid API-KEY</td>
+</tr>
+<tr>
+<td style="text-align: left">MARKET_DATA</td>
+<td style="text-align: left">The endpoints requires sending a valid API-KEY</td>
+</tr>
+</tbody></table>
+<h2 id='signature-authentication'>Signature Authentication</h2><h3 id='signature-trade-amp-user_data'>Signature (TRADE &amp; USER_DATA)</h3>
+<ul>
+<li><p>The SIGNED (signature required) endpoint needs to send a parameter, signature, in the <strong>query string</strong> or <strong>request body</strong>.</p></li>
+<li><p>The endpoint is signed with HMAC SHA256. The HMAC SHA256 signature is the result of <strong>HMAC SHA256</strong> encryption of the key. Use your secretKey as the key and totalParams as the value to complete this encryption process.</p></li>
+<li><p>Signature is not case sensitive.</p></li>
+<li><p>totalParams refers to concatenation of the query string and the request body.</p></li>
+</ul>
+
+<p>All HTTP requests to API endpoints require authentication and authorization. The following headers should be added to all HTTP requests:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th style="text-align: left">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-HK-APIKEY</td>
+<td>API-KEY</td>
+<td style="text-align: left">string</td>
+<td>The API Access Key you applied for</td>
+</tr>
+</tbody></table>
+<h3 id='time-base-security-requirement'>Time-base security requirement</h3>
+<blockquote>
+<p>📘 If your timestamp is ahead of serverTime it needs to be within 1 second + serverTime</p>
+
+<p>The logic of this parameter is as follows:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight java tab-java"><code> <span class="k">if</span> <span class="o">(</span><span class="n">timestamp</span> <span class="o">&lt;</span> <span class="o">(</span><span class="n">serverTime</span> <span class="o">+</span> <span class="mi">1000</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">serverTime</span> <span class="o">-</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">recvWindow</span><span class="o">)</span>
+    <span class="c1">// process request</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="c1">// reject request</span>
+  <span class="o">}</span>
+</code></pre></div>
+<blockquote>
+<p>📘 A relatively small recvWindow (5000 or less) is recommended!</p>
+</blockquote>
+
+<ul>
+<li>For a SIGNED endpoint, an additional parameter &quot;timestamp&quot; needs to be included in the request. This timestamp is in milliseconds and reflect the time when the request was initiated.</li>
+<li>An optional parameter (not mandatory) <code>recvWindow</code> can be used to specify the validity period of the request in milliseconds. If recvWindow is not sent as part of the request, the default value is <strong>5000</strong></li>
+<li>Trading and timeliness are closely interconnected. Network can sometimes be unstable or unreliable, which can lead to inconsistent times when requests are sent to the server.</li>
+<li>With recvWindow, you can specify how many milliseconds the request is valid, otherwise it will be rejected by the server.</li>
+</ul>
+<h3 id='example-1-in-querystring'>Example 1: In queryString</h3>
+<ul>
+<li>queryString: </li>
+</ul>
+
+<p><code>symbol=ETHBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTC&amp;quantity=1&amp;price=0.1&amp;recvWindow=5000&amp;timestamp=1538323200000</code></p>
+
+<ul>
+<li>HMAC SHA256 signature:</li>
+</ul>
+
+<p><code>echo -n &quot;symbol=ETHBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTC&amp;quantity=1&amp;price=0.1&amp;recvWindow=5000&amp;timestamp=1538323200000&quot; | openssl dgst -sha256 -hmac &quot;lH3ELTNiFxCQTmi9pPcWWikhsjO04Yoqw3euoHUuOLC3GYBW64ZqzQsiOEHXQS76&quot;</code></p>
+
+<p>Shell standard output: </p>
+
+<p><code>5f2750ad7589d1d40757a55342e621a44037dad23b5128cc70e18ec1d1c3f4c6</code></p>
+
+<ul>
+<li>curl command:</li>
+</ul>
+
+<p><code>curl -H &quot;X-HK-APIKEY: tAQfOrPIZAhym0qHISRt8EFvxPemdBm5j5WMlkm3Ke9aFp0EGWC2CGM8GHV4kCYW&quot; -X POST &#39;https://$HOST/api/v1/spot/order?symbol=ETHBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTC&amp;quantity=1&amp;price=0.1&amp;recvWindow=5000&amp;timestamp=1538323200000&amp;signature=5f2750ad7589d1d40757a55342e621a44037dad23b5128cc70e18ec1d1c3f4c6&#39;</code></p>
+<h3 id='example-2-in-the-request-body'>Example 2: In the request body</h3>
+<ul>
+<li>requestBody: </li>
+</ul>
+
+<p><code>symbol=ETHBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTC&amp;quantity=1&amp;price=0.1&amp;recvWindow=5000&amp;timestamp=1538323200000</code></p>
+
+<ul>
+<li>HMAC SHA256 signature:</li>
+</ul>
+
+<p><code>echo -n &quot;symbol=ETHBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTC&amp;quantity=1&amp;price=0.1&amp;recvWindow=5000&amp;timestamp=1538323200000&quot; | openssl dgst -sha256 -hmac &quot;lH3ELTNiFxCQTmi9pPcWWikhsjO04Yoqw3euoHUuOLC3GYBW64ZqzQsiOEHXQS76&quot;</code></p>
+
+<p>Shell standard output: </p>
+
+<p><code>5f2750ad7589d1d40757a55342e621a44037dad23b5128cc70e18ec1d1c3f4c6</code></p>
+
+<ul>
+<li>curl command:</li>
+</ul>
+
+<p><code>curl -H &quot;X-HK-APIKEY: tAQfOrPIZAhym0qHISRt8EFvxPemdBm5j5WMlkm3Ke9aFp0EGWC2CGM8GHV4kCYW&quot; -X POST &#39;https://$HOST/api/v1/spot/order&#39; -d &#39;symbol=ETHBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTC&amp;quantity=1&amp;price=0.1&amp;recvWindow=5000&amp;timestamp=1538323200000&amp;signature=5f2750ad7589d1d40757a55342e621a44037dad23b5128cc70e18ec1d1c3f4c6&#39;</code></p>
+<h3 id='example-3-mixing-querystring-and-request-body'>Example 3: mixing queryString and request body</h3>
+<ul>
+<li>queryString:</li>
+</ul>
+
+<p><code>symbol=ETHBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTC</code></p>
+
+<ul>
+<li>requestBody:</li>
+</ul>
+
+<p><code>quantity=1&amp;price=0.1&amp;recvWindow=5000×tamp=1538323200000</code></p>
+
+<ul>
+<li>HMAC SHA256 signature:</li>
+</ul>
+
+<p><code>echo -n &quot;symbol=ETHBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTCquantity=1&amp;price=0.1&amp;recvWindow=5000&amp;timestamp=1538323200000&quot; | openssl dgst -sha256 -hmac &quot;lH3ELTNiFxCQTmi9pPcWWikhsjO04Yoqw3euoHUuOLC3GYBW64ZqzQsiOEHXQS76&quot;</code></p>
+
+<p>Shell standard output: </p>
+
+<p><code>885c9e3dd89ccd13408b25e6d54c2330703759d7494bea6dd5a3d1fd16ba3afa</code></p>
+
+<ul>
+<li>curl command:</li>
+</ul>
+
+<p><code>curl -H &quot;X-HK-APIKEY: tAQfOrPIZAhym0qHISRt8EFvxPemdBm5j5WMlkm3Ke9aFp0EGWC2CGM8GHV4kCYW&quot; -X POST &#39;https://$HOST/openapi/v1/order?symbol=ETHBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTC&#39; -d &#39;quantity=1&amp;price=0.1&amp;recvWindow=5000&amp;timestamp=1538323200000&amp;signature=885c9e3dd89ccd13408b25e6d54c2330703759d7494bea6dd5a3d1fd16ba3afa&#39;</code></p>
+
+<aside class="notice">
+Note the difference in Example 3, where there is no & between "GTC" and "quantity = 1".
+</aside>
+<h2 id='getting-started-with-postman'>Getting Started with Postman</h2>
+<p>Postman is a popular plug and play API test environment that allows implementing and testing REST and API endpoints.</p>
+
+<p>Postman provides the HTTP networking to connect to the REST API, allows the HTTP header and GET/POST data to be customised and allows for custom code to be executed using Javascript variant.</p>
+
+<blockquote>
+<p>Pre-request Script</p>
+</blockquote>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="kt">var</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Date</span><span class="o">().</span><span class="na">getTime</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+<span class="n">pm</span><span class="o">.</span><span class="na">environment</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"timestamp"</span><span class="o">,</span> <span class="n">timestamp</span><span class="o">);</span>
+
+<span class="kt">var</span> <span class="n">api_secret</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="na">environment</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"secretKey"</span><span class="o">);</span>
+<span class="kt">var</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="na">request</span><span class="o">.</span><span class="na">url</span><span class="o">.</span><span class="na">query</span><span class="o">.</span><span class="na">toObject</span><span class="o">(</span><span class="n">excludeDisabled</span><span class="o">=</span><span class="kc">true</span><span class="o">);</span>
+
+<span class="kt">var</span> <span class="n">paramsObject</span> <span class="o">=</span> <span class="o">{};</span>
+
+<span class="nc">Object</span><span class="o">.</span><span class="na">keys</span><span class="o">(</span><span class="n">parameters</span><span class="o">).</span><span class="na">forEach</span><span class="o">((</span><span class="n">paramKey</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">{</span>
+  <span class="kt">var</span> <span class="n">paramValue</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">[</span><span class="n">paramKey</span><span class="o">];</span>
+  <span class="kt">var</span> <span class="n">disabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+  <span class="k">if</span> <span class="o">(</span><span class="n">paramKey</span> <span class="o">!==</span> <span class="err">'</span><span class="n">signature</span><span class="err">'</span> <span class="o">&amp;&amp;</span> <span class="n">paramValue</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">disabled</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">paramsObject</span><span class="o">[</span><span class="n">paramKey</span><span class="o">]</span> <span class="o">=</span> <span class="n">paramValue</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">});</span>
+
+<span class="n">paramsObject</span><span class="o">.</span><span class="na">timestamp</span> <span class="o">=</span> <span class="n">timestamp</span><span class="o">;</span>
+
+<span class="kt">var</span> <span class="n">requestString</span> <span class="o">=</span> <span class="nc">Object</span><span class="o">.</span><span class="na">keys</span><span class="o">(</span><span class="n">paramsObject</span><span class="o">).</span><span class="na">map</span><span class="o">((</span><span class="n">key</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="err">`$</span><span class="o">{</span><span class="n">key</span><span class="o">}=</span><span class="err">$</span><span class="o">{</span><span class="n">paramsObject</span><span class="o">[</span><span class="n">key</span><span class="o">]}</span><span class="err">`</span><span class="o">).</span><span class="na">join</span><span class="o">(</span><span class="sc">'&amp;'</span><span class="o">);</span>
+
+<span class="kt">var</span> <span class="n">signature</span> <span class="o">=</span> <span class="nc">CryptoJS</span><span class="o">.</span><span class="na">HmacSHA256</span><span class="o">(</span><span class="n">requestString</span><span class="o">,</span> <span class="n">api_secret</span><span class="o">).</span><span class="na">toString</span><span class="o">();</span>
+<span class="n">pm</span><span class="o">.</span><span class="na">environment</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"signature"</span><span class="o">,</span> <span class="n">signature</span><span class="o">);</span>
+</code></pre></div>
+<ol>
+<li>Create a new environment and add environment variables</li>
+</ol>
+
+<p><img src="https://files.readme.io/594b27d-image.png" alt="" /></p>
+
+<ol>
+<li>Add in the header &quot;X-HK-APIKEY&quot;</li>
+</ol>
+
+<p><img src="https://files.readme.io/c187483-image.png" alt="" /></p>
+
+<ol>
+<li>Add in params for the required endpoint and most important the timestamp and signature</li>
+</ol>
+
+<p><Image align="center" src="https://files.readme.io/d653c6c-image.png" /></p>
+
+<ol>
+<li>Insert the Pre-request script in the above run the API request and press &quot;Send&quot;</li>
+</ol>
+
+<p><img src="https://files.readme.io/bb08972-image.png" alt="" /></p>
+<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all kittens.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://example.com/api/kittens</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_cats</td>
+<td>false</td>
+<td>If set to true, the result will also include cats.</td>
+</tr>
+<tr>
+<td>available</td>
+<td>true</td>
+<td>If set to false, the result will include kittens that have already been adopted.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — a happy kitten is an authenticated kitten!
+</aside>
+<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves a specific kitten.</p>
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
+  <span class="nt">-X</span> DELETE <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint deletes a specific kitten.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to delete</td>
+</tr>
+</tbody></table>
+<h1 id='example'>EXAMPLE</h1><h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
