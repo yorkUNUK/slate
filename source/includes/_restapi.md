@@ -152,10 +152,10 @@ pm.environment.set("signature", signature);
 ```
 
 1. Create a new environment and add environment variables
-   ![](images/postman1.png)
+   ![](images/Authentication/postman1.png)
 2. Add in the header "X-HK-APIKEY"
-   ![](images/postman2.png)
+   ![](images/Authentication/postman2.png)
 3. Add in params for the required endpoint and most important the timestamp and signature
-   ![](images/postman3.png)
+   ![](images/Authentication/postman3.png)
 4. Insert the Pre-request script in the above run the API request and press "Send"
-   ![](images/postman4.png)
+   ![](images/Authentication/postman4.png)

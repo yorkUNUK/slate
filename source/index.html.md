@@ -56,17 +56,17 @@ Please direct any questions or feedback to \[[api@hashkey.com](mailto:api@hashke
 
 📘 [hk.sim.hashkeydev.com](https://hk.sim.hashkeydev.com)
 
-![](https://files.readme.io/820b49e-image.png)
+![](images/TestSandbox/sandbox1.png)
 
 ### 2. To register a new account, simply click on "Sign Up Now" button. If you already have an account, you can log in using your credentials
 
-![](https://files.readme.io/8e073c4-image.png)
+![](images/TestSandbox/sandbox2.png)
 
 ### 3. Activate your account
 
 To activate your account, please reach out to our customer support team via Live Chat. Our team will assist you in the activation process.
 
-![](https://files.readme.io/6323031-image.png)
+![](images/TestSandbox/sandbox3.png)
 
 Our dedicated team is here to assist you with the following
 
@@ -76,11 +76,11 @@ Our dedicated team is here to assist you with the following
 
 ### 4. Go to Settings ->API Management -> Create API
 
-![](https://files.readme.io/d4ae9a3-image.png)
+![](images/TestSandbox/sandbox4.png)
 
 ### 5. Enter API Key name, select API permission and setup IP Access Restriction
 
-![](https://files.readme.io/bcdc510-image.png)
+![](images/TestSandbox/sandbox5.png)
 
 ## Technical Support
 
